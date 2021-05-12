@@ -1,0 +1,32 @@
+<div class="col-md-6">
+    <h2 class="text-center">Add Student Details</h2>
+    <form [formGroup]="addForm" (ngSubmit)="onSubmit()">
+
+      <div class="form-group">
+        <label for="firstname">Name:</label>
+        <input formControlName="name" placeholder="Enter Name" name="name" class="form-control" id="name">
+        <div class="alert-danger" *ngIf="isInvalid('name')">
+          First Name is empty.
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="age">Age:</label>
+        <input formControlName="age" placeholder="Enter Age" name="age" class="form-control" id="age">
+        <div class="alert-danger" *ngIf="isageInvalid('age')">
+          Age is empty.
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="gender">Gender:</label>
+        <input type="gender" formControlName="gender" placeholder="Enter Gender" name="gender" class="form-control" id="gender">
+        <div class="alert-danger" *ngIf="isgenderInvalid('gender')">
+          Gender is empty.
+        </div>
+      </div>
+
+      <button button [disabled]="addForm.invalid" class="btn btn-success">Submit</button>
+      <button class="btn btn-danger ml-2 " (click)="onCancel()">Cancel</button>
+    </form>
+  </div>
